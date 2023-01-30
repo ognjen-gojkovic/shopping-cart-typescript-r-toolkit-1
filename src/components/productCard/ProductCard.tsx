@@ -56,21 +56,37 @@ const ProductCard: React.FC<Props> = ({ product }) => {
     return () => clearTimeout(id);
   }, [slideFlag]);
 
+  const handleAddItem = (item: Product) => {
+    dispatch(addItem(item));
+  };
+
   return (
-    <ProductCardStyled slideDirection={slideDirection} flag={slideFlag}>
+    <ProductCardStyled
+      slideDirection={slideDirection}
+      flag={slideFlag}
+      data-testid="product-card"
+    >
       <h3>{product.title}</h3>
       <div className="arrows">
-        <span className="arrow-left" onClick={() => handleClick("left")}>
+        <span
+          className="arrow-left"
+          data-testid="left-arrow"
+          onClick={() => handleClick("left")}
+        >
           {"<"}
         </span>
-        <span className="arrow-right" onClick={() => handleClick()}>
+        <span
+          className="arrow-right"
+          data-testid="right-arrow"
+          onClick={() => handleClick()}
+        >
           {">"}
         </span>
       </div>
       <img src={product.images[index]} alt={product.title} />
       <p>{formatText(product.description)}</p>
       <div className="btn">
-        <button onClick={() => dispatch(addItem(product))}>Add to Cart</button>
+        <button onClick={() => handleAddItem(product)}>Add to Cart</button>
       </div>
     </ProductCardStyled>
   );

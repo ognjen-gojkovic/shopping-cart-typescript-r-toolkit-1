@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should correctly render app tree 1`] = `
+<div>
+  <div
+    class="sc-eDvSVe gzbpHj App"
+  >
+    <nav
+      class="sc-bcXHqe eReuuJ"
+    >
+      <h2>
+        Shopping cart app
+      </h2>
+      <div
+        class="container"
+      >
+        <span>
+          Total: $
+          0
+        </span>
+        <div
+          class="cart"
+          data-testid="cart"
+        >
+          <i />
+           Cart
+        </div>
+      </div>
+    </nav>
+    <div
+      class="sc-hLBbgP eePoFQ"
+      data-testid="cart-component"
+    >
+      <div
+        class="modal"
+      />
+      <div
+        class="cart"
+      >
+        <h2>
+          Your Items
+        </h2>
+        <h2>
+          Cart is empty.
+        </h2>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg CONCD"
+    >
+      <h2>
+        Products
+      </h2>
+      <div
+        class="products"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`redux test should first 1`] = `
+<div>
+  <div
+    class="sc-eDvSVe gzbpHj App"
+  >
+    <nav
+      class="sc-bcXHqe eReuuJ"
+    >
+      <h2>
+        Shopping cart app
+      </h2>
+      <div
+        class="container"
+      >
+        <span>
+          Total: $
+          0
+        </span>
+        <div
+          class="cart"
+          data-testid="cart"
+        >
+          <i />
+           Cart
+        </div>
+      </div>
+    </nav>
+    <div
+      class="sc-hLBbgP eePoFQ"
+    >
+      <div
+        class="modal"
+      />
+      <div
+        class="cart"
+      >
+        <h2>
+          Your Items
+        </h2>
+        <h2>
+          Cart is empty.
+        </h2>
+      </div>
+    </div>
+    <div
+      class="sc-dkrFOg CONCD"
+    >
+      <h2>
+        Products
+      </h2>
+      <div
+        class="products"
+      />
+    </div>
+  </div>
+</div>
+`;

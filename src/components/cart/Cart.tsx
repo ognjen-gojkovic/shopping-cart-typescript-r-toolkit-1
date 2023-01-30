@@ -17,8 +17,12 @@ const Cart: React.FC<Props> = ({ toggle, handleToggleCart }) => {
   const cart = useAppSelector((state) => state.reducerCart);
 
   return (
-    <CartStyled toggle={toggle}>
-      <div onClick={() => handleToggleCart()} className="modal"></div>
+    <CartStyled toggle={toggle} data-testid="cart-component">
+      <div
+        onClick={() => handleToggleCart()}
+        data-testid="modal"
+        className="modal"
+      ></div>
       <div className="cart">
         <h2>Your Items</h2>
         {cart.cart.length < 1 ? (
@@ -52,7 +56,7 @@ const Cart: React.FC<Props> = ({ toggle, handleToggleCart }) => {
                       </button>
                     </div>
                     <div className="show">
-                      <div className="quantity">Qunatity: {item.qty}</div>
+                      <div className="quantity">Quantity: {item.qty}</div>
                       <div className="total">
                         Price: {item.price * item.qty}
                       </div>
@@ -66,7 +70,7 @@ const Cart: React.FC<Props> = ({ toggle, handleToggleCart }) => {
                   </div>
                 );
               })}
-              <div className="container">Total: $ {cart.totalPrice}</div>
+              <div className="container">Total: ${cart.totalPrice}</div>
             </div>
             <div className="btn">
               <button

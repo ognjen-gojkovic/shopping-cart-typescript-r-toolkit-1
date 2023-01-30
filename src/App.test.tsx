@@ -1,15 +1,25 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { reduxStore } from "./redux/reduxStore";
+import { screen, cleanup } from "@testing-library/react";
 import App from "./App";
+import UserEvent from "@testing-library/user-event";
+import { renderWithProviders } from "./utils/renderWithRedux";
 
-test("renders learn react link", () => {
-  render(
-    <Provider store={reduxStore}>
-      <App />
-    </Provider>
-  );
+describe("App component", () => {
+  afterEach(cleanup);
+  test("should correctly render app tree", () => {
+    const { container } = renderWithProviders(<App />);
 
-  expect(screen.getByText(/learn/i)).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
+  });
+
+  test("should correctly change cart show state", async () => {
+    renderWithProviders(<App />);
+
+    const cart = screen.getByTestId("cart-component");
+    expect(cart).toHaveStyle("opacity: 0");
+
+    const btn = screen.getByTestId("cart");
+    await UserEvent.click(btn);
+
+    expect(cart).toHaveStyle("opacity: 1");
+  });
 });

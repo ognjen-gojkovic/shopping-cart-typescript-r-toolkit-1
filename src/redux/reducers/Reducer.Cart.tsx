@@ -7,7 +7,7 @@ export type CartType = {
   totalPrice: number;
 };
 
-const initialState: CartType = {
+export const initialState: CartType = {
   cart: [],
   totalItems: 0,
   totalPrice: 0.0,
@@ -47,16 +47,6 @@ const ReducerCart = createSlice({
       });
       state.totalPrice = totalPrc;
     },
-    calcTotal: (state: CartType) => {
-      let tPrice: number = 0,
-        tQty: number = 0;
-      state.cart.forEach((item) => {
-        tPrice += item.price * item.qty;
-        tQty += item.qty;
-      });
-      state.totalItems = tQty;
-      state.totalPrice = tPrice;
-    },
     updateQuantity: (
       state: CartType,
       action: PayloadAction<{ id: number; opt?: string }>
@@ -79,10 +69,6 @@ const ReducerCart = createSlice({
       });
       state.totalPrice = totalPrc;
     },
-    setCart: (state: CartType, action: PayloadAction<CartType>) => {
-      console.log("action:", action.payload);
-      state = { ...action.payload };
-    },
     submit: (state: CartType, action?: PayloadAction) => {
       state.cart = [];
       state.totalPrice = 0;
@@ -91,13 +77,7 @@ const ReducerCart = createSlice({
   },
 });
 
-export const {
-  addItem,
-  calcTotal,
-  removeItem,
-  submit,
-  updateQuantity,
-  setCart,
-} = ReducerCart.actions;
+export const { addItem, removeItem, submit, updateQuantity } =
+  ReducerCart.actions;
 
 export default ReducerCart.reducer;

@@ -9,7 +9,7 @@ export type INITIAL_STATE = {
   error: object | null;
 };
 
-const initialState: INITIAL_STATE = {
+export const initialState: INITIAL_STATE = {
   // products are hardcoded cuz it's frontend app example about cart
   // products: products.products,
   products: [],
@@ -36,7 +36,7 @@ const ReducerProducts = createSlice({
       fetchAllProducts.rejected,
       (state: INITIAL_STATE, action) => {
         state.status = "ERROR";
-        if (action.payload?.error) state.error = action.payload.error;
+        state.error = action.error;
       }
     );
   },

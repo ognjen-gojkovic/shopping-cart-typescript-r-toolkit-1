@@ -2,7 +2,7 @@ export type Product = {
   brand: string;
   category: string;
   description: string;
-  discountPrecentage: number;
+  discountPercentage: number;
   id: number;
   images: string[];
   price: number;
@@ -16,7 +16,7 @@ export type CartItem = {
   brand: string;
   category: string;
   description: string;
-  discountPrecentage: number;
+  discountPercentage: number;
   id: number;
   images: string[];
   price: number;
